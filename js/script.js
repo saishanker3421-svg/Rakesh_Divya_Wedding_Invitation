@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    musicLabel.textContent = music.paused
+    musicLabel.textContent = music.paused 
       ? translations[language].musicOff
       : translations[language].musicOn;
   }
