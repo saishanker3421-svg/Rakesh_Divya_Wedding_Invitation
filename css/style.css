@@ -2054,3 +2054,20 @@ img, video, canvas, svg {
     font-size: clamp(21px, 2.7vw, 23px);
   }
 }
+
+.ganesha-logo {
+  display: block;
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  margin: 0 auto 15px;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .ganesha-logo {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 12px;
+  }
+}
