@@ -1810,3 +1810,27 @@ body.telugu .cover-premium .cover-kicker { font-family: "Noto Serif Telugu", ser
 @media (prefers-reduced-motion: reduce) {
   .music-corner { filter: none; }
 }
+
+
+/* Delicate hollow Ganesha emblem above the invocation */
+.ganesha-outline-icon {
+  display: block;
+  width: clamp(58px, 7vw, 82px);
+  height: auto;
+  max-height: 92px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+  opacity: .94;
+  filter: drop-shadow(0 2px 5px #c99b4533);
+}
+.header-ganesha {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (max-width: 620px) {
+  .ganesha-outline-icon {
+    width: 62px;
+    max-height: 76px;
+    margin-bottom: 7px;
+  }
+}
