@@ -18,6 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
     window.clearTimeout(messageTimer);
     messageTimer = window.setTimeout(() => musicMessage.classList.remove("visible"), 4200);
   }
+  function syncMusicButton(isPlaying) {
+    musicToggle.classList.toggle("playing", isPlaying);
+    musicToggle.setAttribute("aria-pressed", String(isPlaying));
+    musicLabel.textContent = isPlaying
+      ? translations[currentLanguage].musicOn
+      : translations[currentLanguage].musicOff;
+  }
+  function startWeddingMusic() {
+    if (!music.paused) {
+      syncMusicButton(true);
+      return;
+    }
+    music.play().then(() => {
+      syncMusicButton(true);
+    }).catch(() => {
+      syncMusicButton(false);
+      showMusicMessage("musicError");
+    });
+  }
   function setLanguage(language) {
     currentLanguage = language;
     document.documentElement.lang = language;
@@ -82,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (invitationOpened) return;
     invitationOpened = true;
     openInvitationButton.disabled = true;
+    startWeddingMusic();
     invitation.hidden = false;
     const firstSection = invitation.querySelector(".reveal-on-scroll");
     if (firstSection) firstSection.classList.add("is-visible");
@@ -97,20 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   musicToggle.addEventListener("click", function () {
     if (music.paused) {
-      music.play().then(function () {
-        musicToggle.classList.add("playing");
-        musicToggle.setAttribute("aria-pressed", "true");
-        musicLabel.textContent = translations[currentLanguage].musicOn;
-      }).catch(function () {
-        showMusicMessage("musicMissing");
-      });
+      startWeddingMusic();
     } else {
       music.pause();
-      musicToggle.classList.remove("playing");
-      musicToggle.setAttribute("aria-pressed", "false");
-      musicLabel.textContent = translations[currentLanguage].musicOff;
+      syncMusicButton(false);
     }
   });
+
   // Google Drive guest uploads: no Google sign-in is required from guests.
   const guestPhotoUpload = document.getElementById("guestPhotoUpload");
   const guestPhotoStatus = document.getElementById("guestPhotoStatus");
@@ -237,9 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   music.addEventListener("error", () => {
-    musicToggle.classList.remove("playing");
-    musicToggle.setAttribute("aria-pressed", "false");
-    musicLabel.textContent = translations[currentLanguage].musicOff;
+    syncMusicButton(false);
     showMusicMessage("musicError");
   });
   const weddingTime = new Date("2026-12-03T11:18:00+05:30").getTime();
