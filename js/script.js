@@ -370,15 +370,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const callbackName = "diraUploadStatus_" + token.replace(/[^a-zA-Z0-9_]/g, "");
     let finished = false;
     let attempts = 0;
-    const maxAttempts = 90;
+    const maxAttempts = 180;
     let activeScript = null;
-    let pollTimer;
+    let pollTimer = null;
+    let requestTimer = null;
+
+    function removeActiveScript() {
+      if (activeScript && activeScript.parentNode) {
+        activeScript.parentNode.removeChild(activeScript);
+      }
+      activeScript = null;
+    }
 
     function finish(result) {
       if (finished) return;
       finished = true;
-      window.clearInterval(pollTimer);
-      if (activeScript && activeScript.parentNode) activeScript.parentNode.removeChild(activeScript);
+      window.clearTimeout(pollTimer);
+      window.clearTimeout(requestTimer);
+      removeActiveScript();
       try {
         delete window[callbackName];
       } catch (error) {
@@ -387,18 +396,27 @@ document.addEventListener("DOMContentLoaded", () => {
       onComplete(result);
     }
 
-    window[callbackName] = function (result) {
-      if (result && result.pending) return;
-      if (result && result.token === token) finish(result);
-    };
-
-    pollTimer = window.setInterval(function () {
+    function scheduleNextPoll(delay) {
       if (finished) return;
-      attempts += 1;
+      window.clearTimeout(pollTimer);
+      pollTimer = window.setTimeout(requestStatus, delay);
+    }
 
-      if (activeScript && activeScript.parentNode) {
-        activeScript.parentNode.removeChild(activeScript);
+    function requestStatus() {
+      if (finished) return;
+
+      attempts += 1;
+      if (attempts > maxAttempts) {
+        finish({
+          token: token,
+          ok: false,
+          message: "We could not confirm the upload. Please check your Google Drive folder before trying again."
+        });
+        return;
       }
+
+      removeActiveScript();
+      window.clearTimeout(requestTimer);
 
       activeScript = document.createElement("script");
       activeScript.async = true;
@@ -408,25 +426,36 @@ document.addEventListener("DOMContentLoaded", () => {
         "&_=" + Date.now();
 
       activeScript.onerror = function () {
-        if (attempts >= maxAttempts) {
-          finish({
-            token: token,
-            ok: false,
-            message: "We could not confirm the upload. Please check your Google Drive folder before trying again."
-          });
-        }
+        removeActiveScript();
+        window.clearTimeout(requestTimer);
+        scheduleNextPoll(3000);
       };
 
-      document.head.appendChild(activeScript);
+      // Do not cancel a request merely because the next polling interval elapsed.
+      // Wait up to 15 seconds for this individual Apps Script request to finish.
+      requestTimer = window.setTimeout(function () {
+        removeActiveScript();
+        scheduleNextPoll(3000);
+      }, 15000);
 
-      if (attempts >= maxAttempts) {
-        finish({
-          token: token,
-          ok: false,
-          message: "The upload is taking longer than expected. Please check your Google Drive folder before trying again."
-        });
+      document.head.appendChild(activeScript);
+    }
+
+    window[callbackName] = function (result) {
+      if (finished || !result || result.token !== token) return;
+
+      window.clearTimeout(requestTimer);
+      removeActiveScript();
+
+      if (result.pending) {
+        scheduleNextPoll(2000);
+        return;
       }
-    }, 2000);
+
+      finish(result);
+    };
+
+    requestStatus();
   }
 
   async function uploadGuestPhotos(files) {
