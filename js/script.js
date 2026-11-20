@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("weddingMusic");
   const musicToggle = document.getElementById("musicToggle");
   const musicLabel = musicToggle.querySelector("[data-i18n]");
-  const musicMessage = document.getElementById("musicMessage"); 
+  const musicMessage = document.getElementById("musicMessage");
   let currentLanguage = "en";
   let messageTimer;
   function showMusicMessage(key) {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    musicLabel.textContent = music.paused 
+    musicLabel.textContent = music.paused
       ? translations[language].musicOff
       : translations[language].musicOn;
   }
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   async function uploadGuestPhotos(files) {
     const endpoint = GOOGLE_DRIVE_UPLOAD_URL.trim();
-    if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/i.test(endpoint)) {
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\\?.*)?$/i.test(endpoint)) {
       setPhotoStatus("Photo upload is not configured yet. Please try again later.");
       return;
     }
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   music.addEventListener("error", () => {
     musicToggle.classList.remove("playing");
-    musicToggle.setAttribute("aria-pressed", "false"); 
+    musicToggle.setAttribute("aria-pressed", "false");
     musicLabel.textContent = translations[currentLanguage].musicOff;
     showMusicMessage("musicError");
   });

@@ -7,7 +7,7 @@
   --green: #063b32;
 
   --green-light: #0c5144;
- 
+
   --gold: #c99b45;
 
   --gold-light: #efd48c;
@@ -1812,25 +1812,245 @@ body.telugu .cover-premium .cover-kicker { font-family: "Noto Serif Telugu", ser
 }
 
 
-/* Delicate hollow Ganesha emblem above the invocation */
-.ganesha-outline-icon {
-  display: block;
-  width: clamp(58px, 7vw, 82px);
-  height: auto;
-  max-height: 92px;
-  object-fit: contain;
-  margin: 0 auto 8px;
-  opacity: .94;
-  filter: drop-shadow(0 2px 5px #c99b4533);
+
+/* DIRA responsive refinement - 21 Nov 2026 */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
-.header-ganesha {
-  margin-top: 0;
-  margin-bottom: 0;
+
+img, video, canvas, svg {
+  max-width: 100%;
 }
+
+.top-controls {
+  max-width: calc(100vw - 24px);
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.invitation-header {
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+}
+
+.invitation-message {
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+.couple-heading {
+  max-width: 100%;
+  margin-inline: auto;
+  line-height: 1.08;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.header-hashtag {
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 620px) {
-  .ganesha-outline-icon {
-    width: 62px;
-    max-height: 76px;
-    margin-bottom: 7px;
+  .top-controls {
+    position: fixed;
+    top: max(8px, env(safe-area-inset-top));
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: max-content;
+    max-width: calc(100vw - 16px);
+  }
+
+  .language-switch {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .language-button,
+  .music-button {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .music-button {
+    gap: 5px;
+  }
+
+  .music-icon {
+    font-size: 15px;
+  }
+
+  .music-message {
+    top: calc(max(8px, env(safe-area-inset-top)) + 52px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+    text-align: center;
+  }
+
+  .invitation-header {
+    padding: 92px 18px 54px;
+  }
+
+  .invitation-header::before,
+  .invitation-header::after {
+    top: 18%;
+    font-size: clamp(105px, 30vw, 155px);
+    opacity: .075;
+  }
+
+  .invitation-header::before { left: -62px; }
+  .invitation-header::after { right: -62px; }
+
+  .header-inner {
+    max-width: 560px;
+  }
+
+  .header-ganesha {
+    margin: 8px 0 12px;
+    font-size: clamp(17px, 4.8vw, 21px);
+    line-height: 1.4;
+  }
+
+  .header-ornament {
+    margin: 8px 0;
+    font-size: 24px;
+  }
+
+  .patrika-telugu {
+    margin: 10px 0 8px;
+    font-size: clamp(21px, 6vw, 29px);
+    line-height: 1.5;
+  }
+
+  .patrika-english {
+    font-size: clamp(12px, 3.5vw, 15px);
+    letter-spacing: .14em;
+  }
+
+  .couple-heading {
+    margin: 20px auto 8px;
+    font-size: clamp(40px, 10.5vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -.015em;
+  }
+
+  body.telugu .couple-heading {
+    font-size: clamp(27px, 7vw, 38px);
+    line-height: 1.55;
+  }
+
+  .header-hashtag {
+    margin: 14px 0 0;
+    font-size: clamp(12px, 3.5vw, 15px);
+    letter-spacing: .08em;
+  }
+
+  .invitation-message {
+    max-width: 560px;
+    margin: 22px auto 0;
+    font-size: clamp(18px, 5vw, 21px);
+    line-height: 1.55;
+    padding-inline: 1px;
+  }
+
+  body.telugu .invitation-message {
+    font-size: clamp(16px, 4.4vw, 19px);
+    line-height: 1.9;
+  }
+
+  .section {
+    padding: 56px 16px;
+  }
+
+  .section h2 {
+    font-size: clamp(34px, 8vw, 44px);
+    line-height: 1.15;
+  }
+
+  .countdown {
+    gap: 8px;
+  }
+
+  .countdown-unit {
+    width: calc(25% - 7px);
+    min-width: 68px;
+    padding: 12px 4px;
+  }
+
+  .countdown-unit strong {
+    font-size: clamp(29px, 8vw, 37px);
+  }
+
+  .memories-grid {
+    max-width: 100%;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .action-button {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .top-controls {
+    gap: 4px;
+    max-width: calc(100vw - 12px);
+  }
+
+  .language-button,
+  .music-button {
+    padding: 7px 8px;
+    font-size: 10px;
+  }
+
+  .invitation-header {
+    padding: 88px 14px 48px;
+  }
+
+  .couple-heading {
+    font-size: clamp(37px, 10.2vw, 43px);
+  }
+
+  .invitation-message {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 621px) and (max-width: 900px) {
+  .invitation-header {
+    padding: 100px 28px 70px;
+  }
+
+  .couple-heading {
+    font-size: clamp(52px, 8vw, 72px);
+  }
+
+  .invitation-message {
+    font-size: clamp(21px, 2.7vw, 23px);
   }
 }
