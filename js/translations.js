@@ -18,7 +18,7 @@ window.WEDDING_TRANSLATIONS = {
     coupleNames: "Sai Divya & Rakesh",
     brideName: "Sai Divya",
     groomName: "Rakesh",
-    coverDate: "THURSDAY · 3 DECEMBER 2026 · 11:18 AM",
+    coverDate: "THURSDAY · 3 DECEMBER 2026 · 11:18 AM", 
     openInvitation: "Open Invitation",
     coverNote: "A new chapter begins. We would be honoured to have you with us.",
     patrika: "Wedding Invitation",

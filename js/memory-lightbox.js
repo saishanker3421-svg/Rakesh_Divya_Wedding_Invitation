@@ -12,7 +12,7 @@
   const close = document.createElement('button');
   close.className = 'memory-lightbox-close';
   close.type = 'button';
-  close.setAttribute('aria-label', 'Close photo');
+  close.setAttribute('aria-label', 'Close photo'); 
   close.innerHTML = '&times;';
   lightbox.append(enlarged, close);
   document.body.appendChild(lightbox);

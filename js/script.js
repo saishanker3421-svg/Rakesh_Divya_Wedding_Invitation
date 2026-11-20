@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("weddingMusic");
   const musicToggle = document.getElementById("musicToggle");
   const musicLabel = musicToggle.querySelector("[data-i18n]");
-  const musicMessage = document.getElementById("musicMessage");
+  const musicMessage = document.getElementById("musicMessage"); 
   let currentLanguage = "en";
   let messageTimer;
   function showMusicMessage(key) {
