@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#063b32">
+  <meta name="description" content="Wedding invitation of Sai Divya and Rakesh — 3 December 2026 at Dreamland Gardens, Ranibagh, Secunderabad.">
+  <title>Sai Divya &amp; Rakesh | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/translations.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/memory-lightbox.js" defer></script>
+</head>
+<body>
+  <div class="flower-fall" aria-hidden="true">
+    <span>✿</span><span>❀</span><span>✽</span><span>✿</span><span>❀</span>
+    <span>✽</span><span>✿</span><span>❀</span><span>✽</span><span>✿</span>
+    <span>❀</span><span>✽</span><span>✿</span><span>❀</span><span>✽</span>
+    <span>✿</span><span>❀</span><span>✽</span>
+  </div>
+
+  <!-- Subtle traditional wedding-music instrument traces in the four screen corners -->
+  <div class="traditional-music-corners" aria-hidden="true">
+    <img class="music-corner music-corner--top-left" src="assets/decor/nadaswaram.svg" alt="">
+    <img class="music-corner music-corner--top-right" src="assets/decor/tavil.svg" alt="">
+    <img class="music-corner music-corner--bottom-left" src="assets/decor/thalam.svg" alt="">
+    <img class="music-corner music-corner--bottom-right" src="assets/decor/melam.svg" alt="">
+  </div>
+
+  <div class="top-controls">
+    <div class="language-switch" role="group" aria-label="Choose language">
+      <button type="button" class="language-button active" data-language="en" aria-pressed="true">EN</button>
+      <button type="button" class="language-button" data-language="te" aria-pressed="false">తెలుగు</button>
+    </div>
+    <button type="button" id="musicToggle" class="music-button" aria-pressed="false">
+      <span class="music-icon" aria-hidden="true">♫</span>
+      <span data-i18n="musicOff">Music: Off</span>
+    </button>
+  </div>
+
+  <!-- Add your own MP3 at assets/music/wedding-song.mp3 -->
+  <audio id="weddingMusic" loop preload="none">
+    <source src="assets/music/wedding-song.mp3" type="audio/mpeg">
+  </audio>
+  <div id="musicMessage" class="music-message" role="status" aria-live="polite"></div>
+
+  <section class="cover cover-premium" id="cover">
+    <div class="cover-glow" aria-hidden="true"></div>
+    <div class="cover-frame cover-frame-premium">
+      <div class="cover-brand" aria-label="DIRA Wedding">
+        <div class="brand-monogram" aria-hidden="true"><span>D</span><i>R</i></div>
+        <p class="brand-wordmark">DIRA <span>WEDDING</span></p>
+      </div>
+      <div class="cover-divider" aria-hidden="true"><span></span> ✧ <span></span></div>
+      <p class="cover-kicker" data-i18n="coverKicker">A celebration of love</p>
+      <h1 class="cover-invitation-title" data-i18n="coverTitle">Wedding Invitation</h1>
+      <p class="cover-invitation-message" data-i18n="coverInvitationLine">Together with our families, we invite you to celebrate a beautiful beginning.</p>
+      <button type="button" id="openInvitation" class="open-button">
+        <span data-i18n="openInvitation">Open Invitation</span><span aria-hidden="true">✦</span>
+      </button>
+      <p class="cover-note" data-i18n="coverBlessingLine">Your presence will make our celebration truly special.</p>
+    </div>
+    <div class="cover-bottom-ornament" aria-hidden="true">❦</div>
+  </section>
+
+  <main id="invitation" hidden>
+    <header class="invitation-header reveal-on-scroll">
+      <div class="header-inner">
+        <p class="header-ganesha" data-i18n="ganesha">Om Sri Ganeshaya Namaha</p>
+        <div class="header-ornament" aria-hidden="true">❦</div>
+        <p class="patrika-telugu" data-i18n="patrika">Wedding Invitation</p>
+        <h2 class="couple-heading" data-i18n="coupleNames">Sai Divya &amp; Rakesh</h2>
+        <p class="header-hashtag">#DIRAKalyanam</p>
+        <p class="invitation-message" data-i18n="invitationMessage">With the blessings of the Almighty and our elders, we cordially invite you to grace the wedding ceremony of Sai Divya and Rakesh and bless them as they begin their life together.</p>
+      </div>
+    </header>
+
+    <section class="section quote-section reveal-on-scroll">
+      <p class="eyebrow" data-i18n="quoteEyebrow">A blessing for the journey ahead</p>
+      <h2 data-i18n="quoteTitle">A Promise of Togetherness</h2>
+      <div class="quote-card">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p class="quote-english" data-i18n="quoteEnglish">Two hearts, one promise, and a lifetime of choosing each other.</p>
+        <p class="quote-telugu" data-i18n="quoteTelugu">రెండు హృదయాలు... ఒకే మాట... జీవితాంతం ఒకరికొకరు తోడుగా నిలిచే ప్రేమబంధం.</p>
+        <span class="quote-mark closing-quote" aria-hidden="true">”</span>
+      </div>
+    </section>
+
+    <section class="section countdown-section reveal-on-scroll">
+      <p class="eyebrow" data-i18n="countdownEyebrow">The celebration is approaching</p>
+      <h2 data-i18n="countdownTitle">Counting Down to Forever</h2>
+      <div class="countdown" aria-live="off">
+        <div class="countdown-unit"><strong id="days">--</strong><span data-i18n="days">DAYS</span></div>
+        <div class="countdown-unit"><strong id="hours">--</strong><span data-i18n="hours">HOURS</span></div>
+        <div class="countdown-unit"><strong id="minutes">--</strong><span data-i18n="minutes">MINUTES</span></div>
+        <div class="countdown-unit"><strong id="seconds">--</strong><span data-i18n="seconds">SECONDS</span></div>
+      </div>
+      <p class="countdown-date" data-i18n="countdownDate">Thursday · 3 December 2026 · 11:18 AM IST</p>
+    </section>
+
+    <section class="section memories-section reveal-on-scroll">
+      <p class="eyebrow" data-i18n="memoriesEyebrow">Little glimpses of our story</p>
+      <h2 data-i18n="memoriesTitle">A Few Precious Memories</h2>
+      <div class="memories-grid">
+        <figure>
+          <img src="assets/images/couple-portrait.jpg" alt="Sai Divya and Rakesh together">
+          <figcaption data-i18n="memoryOne">Together, with love</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/couple-closeup.jpg" alt="A tender moment between Sai Divya and Rakesh">
+          <figcaption data-i18n="memoryTwo">A moment to cherish</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/rings-moment.jpg" alt="Sai Divya and Rakesh showing their rings">
+          <figcaption data-i18n="memoryThree">A promise for a lifetime</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/rings.jpeg" alt="Rings_Portrait">
+          <figcaption data-i18n="memoryFour">forever begins here</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section guest-photos-section reveal-on-scroll" id="guest-photos">
+      <p class="eyebrow" data-i18n="guestPhotosEyebrow">Be part of our memories</p>
+      <h2 data-i18n="guestPhotosTitle">Your Moments, Our Memories</h2>
+      <div class="guest-photos-card">
+        <div class="guest-photos-icon" aria-hidden="true">❦</div>
+        <p class="guest-photos-message" data-i18n="guestPhotosMessage">Captured a lovely moment with us? Share your photos and help us collect the memories of our special day.</p>
+        <button type="button" class="action-button guest-upload-button" id="guestPhotoUpload">
+          <span aria-hidden="true">↥</span><span data-i18n="guestPhotosButton">Upload Your Memories</span>
+        </button>
+        <p class="guest-photos-note" data-i18n="guestPhotosNote">Your uploaded photos will not be displayed on this website. Thank you for sharing your memories with us!</p>
+        <p class="guest-photos-status" id="guestPhotoStatus" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section save-date-section reveal-on-scroll">
+      <p class="eyebrow" data-i18n="saveEyebrow">Mark your calendar</p>
+      <h2 data-i18n="saveTitle">Save the Date</h2>
+      <div class="save-date-card">
+        <p class="save-card-label" data-i18n="weddingOf">The Wedding of</p>
+        <p class="save-date-number">03 · 12 · 2026</p>
+        <p class="save-date-time" data-i18n="muhurtham">Thursday · 11:18 AM</p>
+        <div class="venue-details">
+          <h3>Dreamland Gardens</h3>
+          <p data-i18n="venueLocation">Ranibagh, Secunderabad</p>
+          <p data-i18n="lunchTime">Wedding lunch from 12:30 PM onwards</p>
+        </div>
+        <div class="action-buttons">
+          <a class="action-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Sai%20Divya%20%26%20Rakesh%20Wedding&amp;dates=20261203T054800Z/20261203T070000Z&amp;details=Wedding%20Muhurtham%2011%3A18%20AM%20IST.%20Lunch%20from%2012%3A30%20PM%20onwards.&amp;location=Dreamland%20Gardens%2C%20Ranibagh%2C%20Secunderabad" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">▣</span><span data-i18n="calendarButton">Save to Calendar</span>
+          </a>
+          <a class="action-button secondary" href="https://maps.app.goo.gl/yn3rFb4YpRNXFuCa9?g_st=ac" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">⌖</span><span data-i18n="directionsButton">Get Directions</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-blessing" data-i18n="footerBlessing">With love, and the blessings of our families</p>
+      <p class="footer-names" data-i18n="coupleNames">Sai Divya &amp; Rakesh</p>
+      <p data-i18n="footerThanks">Your presence and blessings will make our day complete.</p>
+      <p class="footer-hashtag">#DIRAKalyanam</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Add your own wedding background music in this folder.
+1. Copy your MP3 file into this folder.
+2. Rename it exactly to: wedding-song.mp3
+3. The expected path is: assets/music/wedding-song.mp3
+4. Refresh the website and press the Music button.
+Music does not autoplay; the visitor must press Music: Off to start it.
