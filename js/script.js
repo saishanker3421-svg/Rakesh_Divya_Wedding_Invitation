@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   music.addEventListener("error", () => {
     musicToggle.classList.remove("playing");
-    musicToggle.setAttribute("aria-pressed", "false");
+    musicToggle.setAttribute("aria-pressed", "false"); 
     musicLabel.textContent = translations[currentLanguage].musicOff;
     showMusicMessage("musicError");
   });
